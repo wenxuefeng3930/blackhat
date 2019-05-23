@@ -9,14 +9,13 @@ server.listen(5)
 
 
 def handler_client(client_socket, args):
-    print(args)
-    request = client_socket.recv(1024)
-    if not client_socket:
-        print("client has exist")
-    print("client,", "is", addr)
-    print("request,", "is", request)
-    client_socket.send(bytes("send by tcp server  ", "utf-8"))
-    client_socket.close()
+    while True:
+        print(args)
+        request = client_socket.recv(1024)
+        print("client,", "is", addr)
+        print("request,", "is", request)
+        client_socket.send(bytes("send by tcp server :: " + str(request), "utf-8"))
+        # client_socket.close()
 
 
 while True:
